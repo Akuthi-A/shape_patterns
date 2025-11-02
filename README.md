@@ -1,5 +1,3 @@
-# shape_patterns
-
 # Python - Shape Pattern
 
 This project is a shape pattern implemented in Python, with unit tests to verify its functionality.
