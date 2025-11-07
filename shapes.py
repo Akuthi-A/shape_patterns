@@ -12,7 +12,7 @@ def area_square(side:int)->int:
         int: The area of the square.
     """
     
-    return 0
+    return side *  side
 
 
 def area_triangle(base:int, height:int)->float:
@@ -28,7 +28,7 @@ def area_triangle(base:int, height:int)->float:
         float: The area of the triangle.
     """
     
-    return 0.0
+    return (1 / 2 * ( base * height ))
 
 def area_circle(radius:int)->float:
     
@@ -42,7 +42,7 @@ def area_circle(radius:int)->float:
         float: The area of the circle.
     """
     
-    return 0.0
+    return 3.14 * (radius ** 2)
 
 def area_rectangle(length:int, width:int)->int:
     
@@ -57,7 +57,7 @@ def area_rectangle(length:int, width:int)->int:
         int: The area of the rectangle.
     """
     
-    return 0
+    return length * width
 
 
 # TODO: Complete the required shapes below
@@ -74,7 +74,8 @@ def draw_square(height:int)->None:
         None: Prints the square pattern directly to console.
         
     """
-    pass
+    for _ in range(height):
+        print(height * "*")
 
 
 
@@ -91,8 +92,10 @@ def draw_triangle(height:int)->None:
     
         
     """
-    
-    pass
+    part = ""
+    for i in range(height):
+        part += str(i + 1) + " "
+        print(part)
 
 def draw_triangle_reversed(height:int)->None:
     
@@ -108,8 +111,11 @@ def draw_triangle_reversed(height:int)->None:
         
 
     """
+    count_down = height
+    for i in range(height):
+        print((str(i + 1) + " " )* count_down)
+        count_down -= 1
     
-    pass
 
 # TODO: BONUS QUESTION
 def draw_pyramid(height:int)->None:
@@ -125,7 +131,8 @@ def draw_pyramid(height:int)->None:
         
     """
     
-    pass
+    for i in range(height):
+        print(("*" * (i + 1)).rjust(height, " ") + ("*" * i))
          
                 
 # TODO: add support for other shapes
@@ -149,4 +156,14 @@ def draw(shape:str, height:int)->None:
     
     if shape == "square":
         draw_square(height)
+    elif shape == "triangle_reversed":
+        draw_pyramid(height)
+    elif shape == "triangle":
+        draw_triangle(height)
+    elif shape == "pyramid":
+        draw_pyramid(height)
+
+
+if __name__ == '__main__':
+    draw("pyramid", 6)
 
